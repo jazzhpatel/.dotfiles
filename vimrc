@@ -22,5 +22,13 @@ Plug 'junegunn/goyo.vim'
 
 Plug 'reedes/vim-pencil'
 
+Plug 'sheerun/vim-polyglot'
+
+Plug 'dikiaap/minimalist'
+
 call plug#end()
+
+set t_Co=256
+syntax on
+colorscheme minimalist
 
