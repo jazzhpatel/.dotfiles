@@ -1,16 +1,46 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-LC_COLLATE="en_US.UTF-8"
-LC_CTYPE="UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-LC_MONETARY="en_US.UTF-8"
-LC_NUMERIC="en_US.UTF-8"
-LC_TIME="en_US.UTF-8
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8
 "
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/j/.oh-my-zsh"
+
+#--------------------------------------------------------------------#
+#  Plugin Config                                                     #
+#--------------------------------------------------------------------#
+
+source $HOME/antigen.zsh
+
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+antigen bundle <<EOBUNDLES
+    # Bundles from the default repo (robbyrussell's oh-my-zsh)
+    git
+
+    # Syntax highlighting bundle.
+    zsh-users/zsh-syntax-highlighting
+
+    # Fish-like auto suggestions
+    zsh-users/zsh-autosuggestions
+
+    # Extra zsh completions
+    zsh-users/zsh-completions
+EOBUNDLES
+
+# Load the theme
+antigen theme robbyrussell
+
+# Tell antigen that you're done
+antigen apply
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -87,15 +117,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
-
-export EDITOR='vim'
-
-
+bindkey -v
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -106,106 +128,8 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias zshconfig="mate ~/.zshrc"
- alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-#
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vimrc = "vim ~/.vimrc"
+alias dotfiles = "cd ~/.dotfiles"
 
-#--------------------------------------------------------------------#
-# Global Configuration Variables                                     #
-#--------------------------------------------------------------------#
-
-# Color to use when highlighting suggestion
-# Uses format of `region_highlight`
-# More info: http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Widgets
-(( ! ${+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE} )) &&
-typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-
-# Prefix to use when saving original versions of bound widgets
-(( ! ${+ZSH_AUTOSUGGEST_ORIGINAL_WIDGET_PREFIX} )) &&
-typeset -g ZSH_AUTOSUGGEST_ORIGINAL_WIDGET_PREFIX=autosuggest-orig-
-
-# Strategies to use to fetch a suggestion
-# Will try each strategy in order until a suggestion is returned
-(( ! ${+ZSH_AUTOSUGGEST_STRATEGY} )) && {
-	typeset -ga ZSH_AUTOSUGGEST_STRATEGY
-	ZSH_AUTOSUGGEST_STRATEGY=(history)
-}
-
-# Widgets that clear the suggestion
-(( ! ${+ZSH_AUTOSUGGEST_CLEAR_WIDGETS} )) && {
-	typeset -ga ZSH_AUTOSUGGEST_CLEAR_WIDGETS
-	ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(
-		history-search-forward
-		history-search-backward
-		history-beginning-search-forward
-		history-beginning-search-backward
-		history-substring-search-up
-		history-substring-search-down
-		up-line-or-beginning-search
-		down-line-or-beginning-search
-		up-line-or-history
-		down-line-or-history
-		accept-line
-		copy-earlier-word
-	)
-}
-
-# Widgets that accept the entire suggestion
-(( ! ${+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS} )) && {
-	typeset -ga ZSH_AUTOSUGGEST_ACCEPT_WIDGETS
-	ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
-		forward-char
-		end-of-line
-		vi-forward-char
-		vi-end-of-line
-		vi-add-eol
-	)
-}
-
-# Widgets that accept the entire suggestion and execute it
-(( ! ${+ZSH_AUTOSUGGEST_EXECUTE_WIDGETS} )) && {
-	typeset -ga ZSH_AUTOSUGGEST_EXECUTE_WIDGETS
-	ZSH_AUTOSUGGEST_EXECUTE_WIDGETS=(
-	)
-}
-
-# Widgets that accept the suggestion as far as the cursor moves
-(( ! ${+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS} )) && {
-	typeset -ga ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS
-	ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
-		forward-word
-		emacs-forward-word
-		vi-forward-word
-		vi-forward-word-end
-		vi-forward-blank-word
-		vi-forward-blank-word-end
-		vi-find-next-char
-		vi-find-next-char-skip
-	)
-}
-
-# Widgets that should be ignored (globbing supported but must be escaped)
-(( ! ${+ZSH_AUTOSUGGEST_IGNORE_WIDGETS} )) && {
-	typeset -ga ZSH_AUTOSUGGEST_IGNORE_WIDGETS
-	ZSH_AUTOSUGGEST_IGNORE_WIDGETS=(
-		orig-\*
-		beep
-		run-help
-		set-local-history
-		which-command
-		yank
-		yank-pop
-		zle-\*
-	)
-}
-
-# Pty name for capturing completions for completion suggestion strategy
-(( ! ${+ZSH_AUTOSUGGEST_COMPLETIONS_PTY_NAME} )) &&
-typeset -g ZSH_AUTOSUGGEST_COMPLETIONS_PTY_NAME=zsh_autosuggest_completion_pty
-
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-source /Users/j/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-source /Users/j/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
