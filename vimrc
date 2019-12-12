@@ -6,13 +6,15 @@ call plug#begin()
 
 "Goyo || The window can be resized with the usual [count]<CTRL-W> + >, <, +, - keys, and <CTRL-W> + = will resize it back to the initial size.
 Plug 'junegunn/goyo.vim'
-
 " Pencil - PencilOff - PencilToggle - PencilSoft - PencilHard
 Plug 'reedes/vim-pencil'
-
 Plug 'sheerun/vim-polyglot'
-
 Plug 'dikiaap/minimalist'
+Plug 'scrooloose/nerdtree'
+Plug 'dracula/vim'
+Plug 'tpope/vim-surround'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -32,7 +34,6 @@ set splitbelow                        " Open new splits to the bottom
 set ttyfast                           " Send more characters in fast terminals
 set listchars=extends:→               " Show arrow if line continues rightwards
 set listchars+=precedes:←             " Show arrow if line continues leftwards
-set nobackup nowritebackup noswapfile " Turn off backup files
 set noerrorbells novisualbell         " Turn off visual and audible bells
 set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
 set history=500
@@ -69,11 +70,9 @@ set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 " Colors & Formatting
 "-------------------------------------------------------------------------------
 
-set t_Co=256
-syntax on
 colorscheme minimalist
 
-" Showcase comments in italics
+
 highlight Comment cterm=italic gui=italic
 
 " Easy tab navigation
