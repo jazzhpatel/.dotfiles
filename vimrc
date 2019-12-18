@@ -24,6 +24,7 @@ nnoremap <C-p> :Files<Cr>
 " Functional Config
 "-------------------------------------------------------------------------------
 
+set nocompatible
 set autoread                          " Auto reload changed files
 set wildmenu                          " Tab autocomplete in command mode
 set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
