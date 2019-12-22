@@ -18,11 +18,8 @@ Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
-nnoremap <C-p> :Files<Cr>
 
-"-------------------------------------------------------------------------------
 " Functional Config
-"-------------------------------------------------------------------------------
 
 set nocompatible
 set autoread                          " Auto reload changed files
@@ -58,24 +55,29 @@ set wildignore+=*/vendor/bundle/*
 set wildignore+=*/node_modules/
 
 
-"-------------------------------------------------------------------------------
 " Interface
-"-------------------------------------------------------------------------------
 
 set number            " Enable line numbers
 set relativenumber
 set scrolloff=5       " Leave 5 lines of buffer when scrolling
 set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 
-"-------------------------------------------------------------------------------
 " Colors & Formatting
-"-------------------------------------------------------------------------------
 
 colorscheme minimalist
 
-
-highlight Comment cterm=italic gui=italic
+" highlight Comment cterm=italic gui=italic
 
 " Easy tab navigation
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Fuzy Finder Ctrl-P
+nnoremap <C-p> :Files<Cr>
+
