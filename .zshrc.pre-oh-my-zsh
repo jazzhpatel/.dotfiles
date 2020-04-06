@@ -1,6 +1,6 @@
-alias python=/usr/local/bin/python3.7
-alias pip=/usr/local/bin/pip3
-
+alias python='/usr/local/bin/python3.7'
+alias pip='/usr/local/bin/pip3'
+alias vii='mvim'
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,3 +71,4 @@ preexec() { echo -ne '\e[5 q' ;}
 
 # Use an alias file
 [ -f .aliases ] && source .aliases
+alias goo='googler'

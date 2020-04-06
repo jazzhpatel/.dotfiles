@@ -25,7 +25,7 @@ alias 'gcan!'='git commit -v -a --no-edit --amend'
 alias 'gcans!'='git commit -v -a -s --no-edit --amend'
 alias 'gcn!'='git commit -v --no-edit --amend'
 
-alias gcl='git clone --recursive'
+alias gcl='git clone'
 alias gclean='git clean -fd'
 
 alias gco='git checkout'
@@ -102,7 +102,7 @@ alias :q='exit'
 alias ve='vim ~/.vimrc'
 alias ze='vim ~/.zshrc'
 alias zr='source ~/.zshrc'
-
+alias va='vim ~/.aliases'
 
 alias brewu='brew update && brew upgrade && brew cleanup && brew prune && brew doctor'
 alias bci='brew cask install'
@@ -128,3 +128,5 @@ alias school='cd ~/documents/school-notes/'
 alias school='cd ~/documents/school-notes/'
 alias school='cd ~/documents/school-notes/'
 alias school='cd ~/documents/school-notes/'
+alias gvim=open -a MacVim
+alias mvim=open -a MacVim
