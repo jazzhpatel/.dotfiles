@@ -10,6 +10,8 @@ export LC_MONETARY=en_US.UTF-8
 export LC_NUMERIC=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
 
+curl -L git.io/antigen > antigen.zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/j/.oh-my-zsh"
 #--------------------------------------------------------------------#
