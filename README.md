@@ -13,4 +13,6 @@
 ### clone dotfiles
 
     yadm clone https://github.com/jazzhpatel/.dotfiles.git
+    zsh
+    
 
